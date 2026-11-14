@@ -1,0 +1,1093 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MindCare | Your Happy Space</title>
+
+<style>
+:root {
+  --pink: #e98caf;
+  --dark: #c95e89;
+  --light: #fff0f5;
+  --bg: #fff8fb;
+  --purple: #c9b5e8;
+  --text: #634958;
+  --white: #ffffff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+/* HEADER */
+
+header {
+  background: white;
+  padding: 17px 6%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 3px 15px #d9a9bd30;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.logo {
+  color: var(--dark);
+  font-size: 25px;
+  font-weight: bold;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  gap: 19px;
+}
+
+nav a {
+  color: var(--text);
+  text-decoration: none;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+nav a:hover {
+  color: var(--dark);
+}
+
+.menu-btn {
+  display: none;
+  border: none;
+  background: none;
+  color: var(--dark);
+  font-size: 25px;
+}
+
+/* HERO */
+
+.hero {
+  width: 90%;
+  margin: 30px auto;
+  min-height: 330px;
+  padding: 55px;
+  border-radius: 25px;
+  display: flex;
+  align-items: center;
+  background:
+    linear-gradient(90deg, #fff0f5 35%, #fff0f5c9),
+    url("https://images.unsplash.com/photo-1499209974431-9dddcece7f88?w=1200")
+    center/cover;
+}
+
+.hero-content {
+  max-width: 540px;
+}
+
+.hero h1 {
+  font-size: 42px;
+  line-height: 1.2;
+  margin-bottom: 18px;
+}
+
+.hero h1 span {
+  color: var(--dark);
+}
+
+.hero p {
+  line-height: 1.8;
+  margin-bottom: 22px;
+}
+
+.btn {
+  background: var(--pink);
+  color: white;
+  padding: 13px 23px;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.btn:hover {
+  background: var(--dark);
+}
+
+/* SECTIONS */
+
+section {
+  width: 90%;
+  margin: 55px auto;
+  scroll-margin-top: 85px;
+}
+
+.heading {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.heading h2 {
+  font-size: 27px;
+  margin-bottom: 9px;
+}
+
+.heading p {
+  color: #9b8190;
+  font-size: 14px;
+}
+
+/* CARDS */
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  background: white;
+  padding: 23px;
+  border-radius: 18px;
+  box-shadow: 0 5px 20px #d9a9bd24;
+}
+
+.card h3 {
+  margin-bottom: 12px;
+}
+
+.card p {
+  color: #987d8c;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.card-icon {
+  font-size: 35px;
+  margin-bottom: 12px;
+}
+
+/* MOOD TRACKER */
+
+.mood-container {
+  background: white;
+  padding: 28px;
+  border-radius: 20px;
+  max-width: 750px;
+  margin: auto;
+  text-align: center;
+  box-shadow: 0 5px 20px #d9a9bd24;
+}
+
+.mood-options {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 13px;
+  margin: 25px 0;
+}
+
+.mood {
+  border: 2px solid transparent;
+  background: var(--light);
+  border-radius: 16px;
+  padding: 15px;
+  min-width: 90px;
+  cursor: pointer;
+  color: var(--text);
+}
+
+.mood span {
+  display: block;
+  font-size: 30px;
+  margin-bottom: 7px;
+}
+
+.mood.active {
+  border-color: var(--pink);
+  background: #fbdce8;
+}
+
+#moodMessage {
+  margin: 15px 0;
+  color: var(--dark);
+  font-weight: bold;
+}
+
+/* JOURNAL */
+
+.form-box {
+  max-width: 700px;
+  background: white;
+  padding: 28px;
+  margin: auto;
+  border-radius: 20px;
+  box-shadow: 0 5px 20px #d9a9bd24;
+}
+
+input, textarea, select {
+  width: 100%;
+  padding: 14px;
+  margin: 10px 0;
+  border: 1px solid #efd0dd;
+  border-radius: 12px;
+  outline: none;
+  background: #fffafd;
+  font-family: Arial, sans-serif;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+input:focus, textarea:focus {
+  border-color: var(--pink);
+}
+
+.entry {
+  background: var(--light);
+  padding: 17px;
+  border-radius: 14px;
+  margin-top: 13px;
+  overflow-wrap: anywhere;
+}
+
+.entry p {
+  line-height: 1.7;
+  white-space: pre-wrap;
+  margin: 10px 0;
+}
+
+.delete-btn {
+  background: #f6d6e2;
+  color: #a64f73;
+  border: none;
+  padding: 8px 13px;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+/* AFFIRMATIONS */
+
+.affirmation {
+  background: linear-gradient(135deg, #ffe2ed, #eee3fa);
+  padding: 35px;
+  border-radius: 22px;
+  text-align: center;
+  max-width: 750px;
+  margin: auto;
+}
+
+.affirmation h2 {
+  margin-bottom: 15px;
+}
+
+#quote {
+  font-size: 20px;
+  line-height: 1.7;
+  margin: 20px 0;
+}
+
+/* BREATHING */
+
+.breath-box {
+  text-align: center;
+  background: white;
+  max-width: 700px;
+  margin: auto;
+  padding: 30px;
+  border-radius: 20px;
+}
+
+.breath-circle {
+  width: 145px;
+  height: 145px;
+  margin: 25px auto;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #f5b4cf, #cdb9eb);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 18px;
+  transition: transform 4s ease-in-out;
+}
+
+.breath-circle.expand {
+  transform: scale(1.35);
+}
+
+#breathText {
+  color: var(--dark);
+  font-weight: bold;
+  margin: 15px;
+}
+
+/* SELF CARE */
+
+.check-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px;
+  margin: 10px 0;
+  background: var(--light);
+  border-radius: 12px;
+}
+
+.check-item input {
+  width: 20px;
+  height: 20px;
+  accent-color: var(--dark);
+  margin: 0;
+}
+
+.check-item label {
+  line-height: 1.5;
+  cursor: pointer;
+}
+
+.progress {
+  background: #f3e1e9;
+  height: 12px;
+  border-radius: 20px;
+  overflow: hidden;
+  margin: 15px 0;
+}
+
+#progressBar {
+  width: 0%;
+  height: 100%;
+  background: var(--pink);
+  transition: .3s;
+}
+
+#progressText {
+  font-size: 13px;
+  color: var(--dark);
+}
+
+/* WELLNESS TIPS */
+
+.tip-card img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 13px;
+  margin-bottom: 13px;
+}
+
+/* SEARCH */
+
+.search {
+  max-width: 550px;
+  margin: auto auto 25px;
+}
+
+/* FOOTER */
+
+footer {
+  background: #ffe5ee;
+  padding: 35px 15px;
+  text-align: center;
+  line-height: 2;
+  margin-top: 60px;
+}
+
+footer strong {
+  color: var(--dark);
+}
+
+.empty {
+  text-align: center;
+  color: #a68a99;
+  padding: 20px;
+}
+
+/* MOBILE */
+
+@media(max-width: 700px) {
+  header {
+    padding: 15px 5%;
+  }
+
+  nav {
+    display: none;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background: white;
+    padding: 20px;
+    flex-direction: column;
+    box-shadow: 0 5px 10px #0001;
+  }
+
+  nav.show {
+    display: flex;
+  }
+
+  .menu-btn {
+    display: block;
+  }
+
+  .hero {
+    padding: 35px 24px;
+    min-height: 310px;
+  }
+
+  .hero h1 {
+    font-size: 32px;
+  }
+
+  section {
+    width: 92%;
+  }
+
+  .mood {
+    min-width: 75px;
+    padding: 12px 7px;
+  }
+
+  .form-box, .mood-container, .breath-box {
+    padding: 19px;
+  }
+
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">🌷 MindCare</div>
+
+  <button class="menu-btn" onclick="toggleMenu()">☰</button>
+
+  <nav id="navigation">
+    <a href="#home" onclick="closeMenu()">Home</a>
+    <a href="#mood" onclick="closeMenu()">Mood</a>
+    <a href="#journal" onclick="closeMenu()">Journal</a>
+    <a href="#affirmations" onclick="closeMenu()">Affirmations</a>
+    <a href="#breathing" onclick="closeMenu()">Breathe</a>
+    <a href="#selfcare" onclick="closeMenu()">Self-Care</a>
+  </nav>
+</header>
+
+<!-- HOME -->
+
+<div class="hero" id="home">
+  <div class="hero-content">
+    <h1>Take a Moment.<br><span>Care for Yourself.</span> 🌸</h1>
+
+    <p>
+      Welcome to MindCare, your little peaceful space.
+      Take time to understand your feelings, write your thoughts,
+      and remember that taking care of yourself matters.
+    </p>
+
+    <button class="btn"
+      onclick="document.getElementById('mood').scrollIntoView({behavior:'smooth'})">
+      Start Your Day 💗
+    </button>
+  </div>
+</div>
+
+<!-- QUICK INTRODUCTION -->
+
+<section>
+  <div class="heading">
+    <h2>Your Little Wellness Space 🌷</h2>
+    <p>Small steps can make your day feel a little brighter.</p>
+  </div>
+
+  <div class="card-grid">
+    <div class="card">
+      <div class="card-icon">😊</div>
+      <h3>Understand Your Mood</h3>
+      <p>Check in with yourself and express how you feel today.</p>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">📔</div>
+      <h3>Express Your Thoughts</h3>
+      <p>Write your feelings, experiences, and personal reflections.</p>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">🌸</div>
+      <h3>Practice Self-Care</h3>
+      <p>Make time for little activities that help you feel refreshed.</p>
+    </div>
+  </div>
+</section>
+
+<!-- MOOD TRACKER -->
+
+<section id="mood">
+  <div class="heading">
+    <h2>How Are You Feeling Today? 💗</h2>
+    <p>There is no wrong way to feel. Be honest with yourself.</p>
+  </div>
+
+  <div class="mood-container">
+    <h3>Choose your current mood</h3>
+
+    <div class="mood-options">
+      <button class="mood" onclick="selectMood('Happy','😊',this)">
+        <span>😊</span>Happy
+      </button>
+
+      <button class="mood" onclick="selectMood('Excited','🤩',this)">
+        <span>🤩</span>Excited
+      </button>
+
+      <button class="mood" onclick="selectMood('Calm','😌',this)">
+        <span>😌</span>Calm
+      </button>
+
+      <button class="mood" onclick="selectMood('Sad','😢',this)">
+        <span>😢</span>Sad
+      </button>
+
+      <button class="mood" onclick="selectMood('Stressed','😣',this)">
+        <span>😣</span>Stressed
+      </button>
+
+      <button class="mood" onclick="selectMood('Tired','😴',this)">
+        <span>😴</span>Tired
+      </button>
+    </div>
+
+    <p id="moodMessage">Your feelings matter. 💕</p>
+
+    <div id="moodHistory"></div>
+  </div>
+</section>
+
+<!-- JOURNAL -->
+
+<section id="journal">
+  <div class="heading">
+    <h2>My Personal Journal 📔</h2>
+    <p>A safe little space to write your thoughts.</p>
+  </div>
+
+  <div class="form-box">
+    <h3>Dear Diary...</h3>
+
+    <input type="text" id="journalTitle"
+      placeholder="Give your entry a title">
+
+    <textarea id="journalText"
+      placeholder="Write about your day, feelings, dreams, or anything on your mind..."></textarea>
+
+    <button class="btn" onclick="saveJournal()">
+      Save My Journal 💗
+    </button>
+
+    <h3 style="margin-top:25px">My Saved Entries</h3>
+    <div id="journalEntries"></div>
+  </div>
+</section>
+
+<!-- AFFIRMATIONS -->
+
+<section id="affirmations">
+  <div class="heading">
+    <h2>Daily Positive Affirmations ✨</h2>
+    <p>A little reminder that you are important.</p>
+  </div>
+
+  <div class="affirmation">
+    <h2>Today's Reminder 🌷</h2>
+
+    <div id="quote">
+      I am growing at my own pace, and that is enough.
+    </div>
+
+    <button class="btn" onclick="newQuote()">
+      New Affirmation 💕
+    </button>
+  </div>
+</section>
+
+<!-- BREATHING EXERCISE -->
+
+<section id="breathing">
+  <div class="heading">
+    <h2>Take a Breathing Break 🧘</h2>
+    <p>Pause for a moment and follow a gentle breathing rhythm.</p>
+  </div>
+
+  <div class="breath-box">
+    <h3>Relax and Breathe</h3>
+
+    <div class="breath-circle" id="breathCircle">
+      Breathe
+    </div>
+
+    <p id="breathText">Press start when you are ready.</p>
+
+    <button class="btn" id="breathButton"
+      onclick="startBreathing()">
+      Start Exercise
+    </button>
+
+    <button class="delete-btn"
+      onclick="stopBreathing()">
+      Stop
+    </button>
+
+    <p style="margin-top:15px;font-size:12px;color:#987d8c">
+      Follow the circle comfortably. Stop if you feel dizzy.
+      You can breathe normally at any time.
+    </p>
+  </div>
+</section>
+
+<!-- SELF CARE CHECKLIST -->
+
+<section id="selfcare">
+  <div class="heading">
+    <h2>My Daily Self-Care Goals 🌸</h2>
+    <p>Little habits can help make your day more balanced.</p>
+  </div>
+
+  <div class="form-box">
+
+    <div id="checklist">
+
+      <div class="check-item">
+        <input type="checkbox" id="task1" onchange="updateProgress()">
+        <label for="task1">💧 Drink enough water</label>
+      </div>
+
+      <div class="check-item">
+        <input type="checkbox" id="task2" onchange="updateProgress()">
+        <label for="task2">🛏️ Get enough rest</label>
+      </div>
+
+      <div class="check-item">
+        <input type="checkbox" id="task3" onchange="updateProgress()">
+        <label for="task3">🚶 Take a short walk or stretch</label>
+      </div>
+
+      <div class="check-item">
+        <input type="checkbox" id="task4" onchange="updateProgress()">
+        <label for="task4">📖 Spend time doing something I enjoy</label>
+      </div>
+
+      <div class="check-item">
+        <input type="checkbox" id="task5" onchange="updateProgress()">
+        <label for="task5">💗 Say something kind to myself</label>
+      </div>
+
+      <div class="check-item">
+        <input type="checkbox" id="task6" onchange="updateProgress()">
+        <label for="task6">🌷 Take a break when needed</label>
+      </div>
+
+    </div>
+
+    <div class="progress">
+      <div id="progressBar"></div>
+    </div>
+
+    <p id="progressText">0 of 6 goals completed.</p>
+
+    <button class="btn" style="margin-top:18px"
+      onclick="resetGoals()">
+      Reset Daily Goals
+    </button>
+  </div>
+</section>
+
+<!-- WELLNESS TIPS -->
+
+<section id="tips">
+  <div class="heading">
+    <h2>Little Self-Care Ideas 🌼</h2>
+    <p>Make time for the simple things that bring you joy.</p>
+  </div>
+
+  <input class="search" id="tipSearch"
+    placeholder="🔍 Search self-care ideas..."
+    oninput="searchTips()">
+
+  <div class="card-grid" id="tipGrid">
+
+    <div class="card tip-card" data-name="music relaxation">
+      <img src="https://images.unsplash.com/photo-1511379938547-c1f69419868d?w=600" alt="Music">
+      <h3>Listen to Music 🎵</h3>
+      <p>Enjoy your favorite songs and take a peaceful break.</p>
+    </div>
+
+    <div class="card tip-card" data-name="nature walking">
+      <img src="https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?w=600" alt="Nature">
+      <h3>Enjoy Nature 🌿</h3>
+      <p>Spend some time outdoors and notice the beauty around you.</p>
+    </div>
+
+    <div class="card tip-card" data-name="reading books">
+      <img src="https://images.unsplash.com/photo-1507842217343-583bb7270b66?w=600" alt="Books">
+      <h3>Read a Book 📚</h3>
+      <p>Read something interesting and give yourself a quiet moment.</p>
+    </div>
+
+    <div class="card tip-card" data-name="journaling writing">
+      <img src="https://images.unsplash.com/photo-1455390582262-044cdead277a?w=600" alt="Journal">
+      <h3>Write Your Thoughts ✍️</h3>
+      <p>Express yourself through writing without judging your feelings.</p>
+    </div>
+
+    <div class="card tip-card" data-name="art creativity drawing">
+      <img src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=600" alt="Art">
+      <h3>Be Creative 🎨</h3>
+      <p>Draw, paint, craft, or try something new.</p>
+    </div>
+
+    <div class="card tip-card" data-name="sleep rest">
+      <img src="https://images.unsplash.com/photo-1511295742362-92c96b9b3b14?w=600" alt="Rest">
+      <h3>Rest and Recharge 💤</h3>
+      <p>Give yourself permission to slow down and relax.</p>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <h2>🌷 MindCare</h2>
+  <p>Your feelings matter. Your well-being matters.</p>
+  <p>Take care of your mind, one day at a time.</p>
+  <p><strong>Made with 💗 for everyone.</strong></p>
+  <small>© 2026 MindCare. All rights reserved.</small>
+</footer>
+
+<script>
+
+// SAFE LOCAL STORAGE HELPERS
+
+function loadData(key, fallback) {
+  try {
+    const value = localStorage.getItem(key);
+    return value ? JSON.parse(value) : fallback;
+  } catch(error) {
+    return fallback;
+  }
+}
+
+function saveData(key, value) {
+  try {
+    localStorage.setItem(key, JSON.stringify(value));
+    return true;
+  } catch(error) {
+    alert("Storage is full or unavailable. Please remove some saved entries.");
+    return false;
+  }
+}
+
+// MOBILE MENU
+
+function toggleMenu() {
+  document.getElementById("navigation").classList.toggle("show");
+}
+
+function closeMenu() {
+  document.getElementById("navigation").classList.remove("show");
+}
+
+// MOOD TRACKER
+
+let moods = loadData("mindcareMoods", []);
+
+function selectMood(name, emoji, button) {
+
+  const today = new Date().toLocaleDateString();
+
+  moods = moods.filter(item => item.date !== today);
+
+  moods.push({
+    mood:name,
+    emoji:emoji,
+    date:today
+  });
+
+  if (!saveData("mindcareMoods", moods)) return;
+
+  document.querySelectorAll(".mood").forEach(btn => {
+    btn.classList.remove("active");
+  });
+
+  button.classList.add("active");
+
+  document.getElementById("moodMessage").textContent =
+    emoji + " You selected " + name + ". Thank you for checking in with yourself!";
+
+  showMoods();
+}
+
+function showMoods() {
+  const history = document.getElementById("moodHistory");
+
+  if (moods.length === 0) {
+    history.innerHTML = "";
+    return;
+  }
+
+  history.innerHTML = "<h3 style='margin:20px 0'>Recent Mood History</h3>" +
+    moods.slice(-7).reverse().map(item => `
+      <div class="entry">
+        ${item.emoji} ${item.mood}
+        <small> — ${escapeHTML(item.date)}</small>
+      </div>
+    `).join("");
+}
+
+function escapeHTML(value) {
+  return String(value).replace(/[&<>"']/g, char => ({
+    "&":"&amp;",
+    "<":"&lt;",
+    ">":"&gt;",
+    '"':"&quot;",
+    "'":"&#39;"
+  })[char]);
+}
+
+// JOURNAL
+
+let journals = loadData("mindcareJournals", []);
+
+function saveJournal() {
+
+  const title = document.getElementById("journalTitle").value.trim();
+  const content = document.getElementById("journalText").value.trim();
+
+  if (!title || !content) {
+    alert("Please enter a title and your journal entry.");
+    return;
+  }
+
+  journals.push({
+    id:Date.now(),
+    title:title,
+    content:content,
+    date:new Date().toLocaleString()
+  });
+
+  if (!saveData("mindcareJournals", journals)) {
+    journals.pop();
+    return;
+  }
+
+  document.getElementById("journalTitle").value = "";
+  document.getElementById("journalText").value = "";
+
+  renderJournals();
+
+  alert("Your journal entry has been saved! 💗");
+}
+
+function renderJournals() {
+
+  const box = document.getElementById("journalEntries");
+
+  if (!journals.length) {
+    box.innerHTML = "<div class='empty'>Your journal is waiting for your first entry. 🌸</div>";
+    return;
+  }
+
+  box.innerHTML = journals.slice().reverse().map(item => `
+    <div class="entry">
+      <h3>${escapeHTML(item.title)}</h3>
+      <small>${escapeHTML(item.date)}</small>
+      <p>${escapeHTML(item.content)}</p>
+      <button class="delete-btn" onclick="deleteJournal(${item.id})">
+        Delete Entry
+      </button>
+    </div>
+  `).join("");
+}
+
+function deleteJournal(id) {
+
+  if (!confirm("Delete this journal entry?")) return;
+
+  journals = journals.filter(item => item.id !== id);
+
+  if (saveData("mindcareJournals", journals)) {
+    renderJournals();
+  }
+}
+
+// AFFIRMATIONS
+
+const quotes = [
+  "I am growing at my own pace, and that is enough.",
+  "I deserve kindness, love, and respect.",
+  "I am allowed to take breaks and rest.",
+  "Small progress is still progress.",
+  "I believe in my ability to learn and grow.",
+  "I do not have to be perfect to be valuable.",
+  "Today is another opportunity to begin again.",
+  "I am proud of how far I have come.",
+  "My feelings deserve to be acknowledged.",
+  "I can take things one step at a time."
+];
+
+function newQuote() {
+  const random = Math.floor(Math.random() * quotes.length);
+
+  document.getElementById("quote").textContent =
+    quotes[random];
+}
+
+// BREATHING EXERCISE
+
+let breathTimer = null;
+let breathPhase = 0;
+
+const breathSteps = [
+  {text:"Breathe in slowly...", duration:4000, expand:true},
+  {text:"Breathe out gently...", duration:4000, expand:false}
+];
+
+function startBreathing() {
+
+  if (breathTimer) return;
+
+  breathPhase = 0;
+  document.getElementById("breathButton").disabled = true;
+
+  runBreathingStep();
+}
+
+function runBreathingStep() {
+
+  const step = breathSteps[breathPhase];
+
+  document.getElementById("breathText").textContent = step.text;
+
+  document.getElementById("breathCircle").classList.toggle(
+    "expand", step.expand
+  );
+
+  breathTimer = setTimeout(() => {
+    breathPhase = (breathPhase + 1) % breathSteps.length;
+    runBreathingStep();
+  }, step.duration);
+}
+
+function stopBreathing() {
+
+  clearTimeout(breathTimer);
+  breathTimer = null;
+
+  document.getElementById("breathCircle").classList.remove("expand");
+  document.getElementById("breathText").textContent =
+    "Exercise stopped. Return to your normal breathing.";
+
+  document.getElementById("breathButton").disabled = false;
+}
+
+// DAILY GOALS
+
+const goalIds = ["task1","task2","task3","task4","task5","task6"];
+
+function todayKey() {
+  return new Date().toLocaleDateString();
+}
+
+function loadGoals() {
+
+  const data = loadData("mindcareGoals", {});
+
+  goalIds.forEach(id => {
+    document.getElementById(id).checked =
+      data.date === todayKey() && data[id] === true;
+  });
+
+  updateProgress(false);
+}
+
+function updateProgress(save = true) {
+
+  const completed = goalIds.filter(id =>
+    document.getElementById(id).checked
+  ).length;
+
+  const percent = completed / goalIds.length * 100;
+
+  document.getElementById("progressBar").style.width =
+    percent + "%";
+
+  document.getElementById("progressText").textContent =
+    completed + " of " + goalIds.length + " goals completed. " +
+    (completed === 6 ? "Wonderful job! 💗" : "Keep going at your own pace.");
+
+  if (save) {
+    const data = {date:todayKey()};
+
+    goalIds.forEach(id => {
+      data[id] = document.getElementById(id).checked;
+    });
+
+    saveData("mindcareGoals", data);
+  }
+}
+
+function resetGoals() {
+
+  if (!confirm("Reset all your daily goals?")) return;
+
+  goalIds.forEach(id => {
+    document.getElementById(id).checked = false;
+  });
+
+  updateProgress();
+}
+
+// SEARCH WELLNESS TIPS
+
+function searchTips() {
+
+  const search = document.getElementById("tipSearch")
+    .value.toLowerCase().trim();
+
+  document.querySelectorAll(".tip-card").forEach(card => {
+
+    const text = (
+      card.innerText + " " +
+      card.dataset.name
+    ).toLowerCase();
+
+    card.style.display = text.includes(search) ? "" : "none";
+  });
+}
+
+// INITIALIZE
+
+showMoods();
+renderJournals();
+loadGoals();
+
+</script>
+
+</body>
+</html>
